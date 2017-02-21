@@ -84,3 +84,8 @@ add lines in `package.json`
 ```
 
 7. run `npm run storybook` for dev development or `npm run build-storybook` for building html
+
+
+## Inspirated by
+
+* storybook
