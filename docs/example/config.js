@@ -1,4 +1,4 @@
-import { wrapModules, setConfig } from 'lsk-storybook';
+import { wrapModules, setConfig } from 'storybox';
 setConfig({
   options: {
     name: 'MyExample',
