@@ -18,6 +18,14 @@ install storybox package:
 `yarn add --dev storybox` or
 `npm install --save-dev storybox`
 
+adnd
+
+1.a
+Install Storybook 2.35.3 by Kadira
+
+`yarn add --dev @kadira/storybook@2.35.3` or
+`npm install --save-dev @kadira/storybook@2.35.3`
+
 2.
 Attach storybox addons pack, create `.storybook/addons.js`
 ```js
