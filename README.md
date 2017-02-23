@@ -84,14 +84,14 @@ add lines in `package.json`
   ...
   "scripts": {
     ...
-    "storybox": "start-storybook -p 9001 -c .storybook",
-    "build-storybox": "build-storybook -c .storybook -o .out"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out"
   }
   ...
 }
 ```
 
-7. run `npm run storybox` for dev development or `npm run build-storybox` for building html
+7. run `npm run storybook` for dev development or `npm run build-storybook` for building html
 
 
 ## Inspirated by
