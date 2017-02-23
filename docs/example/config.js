@@ -1,7 +1,7 @@
 import { config } from 'storybox';
 config({
   options: {
-    name: 'MG Beta12312312',
+    name: 'YourComponent',
   },
   modules: require('glob!./glob.txt'),
 });
