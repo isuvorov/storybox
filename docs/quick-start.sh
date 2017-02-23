@@ -6,7 +6,7 @@ wget https://raw.githubusercontent.com/isuvorov/storybox/master/docs/example/add
 wget https://raw.githubusercontent.com/isuvorov/storybox/master/docs/example/config.js -O ./.storybook/config.js
 wget https://raw.githubusercontent.com/isuvorov/storybox/master/docs/example/glob.txt -O ./.storybook/glob.txt
 wget https://raw.githubusercontent.com/isuvorov/storybox/master/docs/example/webpack.config.js -O ./.storybook/webpack.config.js
-yarn add --dev storybox
+yarn add --dev storybox @kadira/storybook@2.35.3
 echo " "
 echo "================================="
 echo "Your project successfuly updated!"
