@@ -93,6 +93,28 @@ add lines in `package.json`
 
 7. run `npm run storybook` for dev development or `npm run build-storybook` for building html
 
+## Example story
+
+src/Test.story.jsx
+```js
+import React from 'react';
+
+module.exports = function ({ storiesOf, action }) {
+  return storiesOf('Test', module)
+    .add('default', () => (
+      <button>
+        Hello World
+      </button>
+    ))    
+    .add('emoji', () => (
+      <button>
+        Hello 🎃
+      </button>
+    ));
+};
+
+```
+
 
 ## Inspirated by
 
