@@ -102,12 +102,12 @@ import React from 'react';
 module.exports = function ({ storiesOf, action }) {
   return storiesOf('Test', module)
     .add('default', () => (
-      <button>
+      <button onClick={action('click')}>
         Hello World
       </button>
     ))    
     .add('emoji', () => (
-      <button>
+      <button onClick={action('click')}>
         Hello 🎃
       </button>
     ));
