@@ -86,6 +86,73 @@ add lines in `package.json`
 7. run `npm run storybook` for dev development or `npm run build-storybook` for building html
 
 
+## New API features
+
+### addHtml
+Add jsx elements before story
+
+```js
+module.exports = function ({ storiesOf, action }) {
+  return storiesOf('Cert/CertForm', module)
+    .addHtml(<link rel="stylesheet" type="text/css" href="http://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" />)
+    .add('Button', () => {
+      return (
+        <div className="row">
+          <div className="col-md-6 col-md-offser-3">
+            <a className="btn btn-success" href="#">
+              Button
+            </a>
+          </div>        
+        </div>
+      );
+    });
+};
+```
+
+### addStyle
+Add css code in <style>${css}</style>
+
+```js
+module.exports = function ({ storiesOf, action }) {
+  return storiesOf('Cert/CertForm', module)
+    .addStyle(`
+.body {
+  background: #eee;
+}
+.box {
+  background: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 30px;
+}
+    `)
+    .add('Button', () => {
+      return (
+        <div className="box">
+          Test
+        </div>
+      );
+    });
+};
+```
+
+Or you can add css like `require('css!./style.css')`
+
+```js
+module.exports = function ({ storiesOf, action }) {
+  return storiesOf('Cert/CertForm', module)
+    .addStyle(require('./style.css'))
+    .add('Button', () => {
+      return (
+        <div className="box">
+          Test
+        </div>
+      );
+    });
+};
+```
+
+
 ## Inspirated by
 
 * storybook

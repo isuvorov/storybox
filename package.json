@@ -1,6 +1,6 @@
 {
   "name": "storybox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Storybox is a UI development environment for your React components based on React Storybook package includes popular addons and best decorators.",
   "main": "index.js",
   "directories": {
@@ -28,7 +28,7 @@
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/react-storybook-decorator-centered": "^1.0.0",
-    "@kadira/storybook": "2.5.1",
+    "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "@kadira/storybook-addon-options": "^1.0.1",
     "babel-core": "6.9.0",
@@ -38,13 +38,13 @@
     "react-storybook-decorator-background": "^1.0.5"
   },
   "devDependencies": {
-    "rimraf": "^2.5.4",
     "babel-cli": "^6.23.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-2": "^6.22.0"
+    "babel-preset-stage-2": "^6.22.0",
+    "rimraf": "^2.5.4"
   },
   "scripts": {
     "babel-build": "rimraf lib && babel src --out-dir lib --source-maps inline --copy-files && cp {package.json,README.md} lib/",
