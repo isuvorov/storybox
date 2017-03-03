@@ -1,6 +1,6 @@
 {
   "name": "storybox",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Storybox is a UI development environment for your React components based on React Storybook package includes popular addons and best decorators.",
   "main": "index.js",
   "directories": {
