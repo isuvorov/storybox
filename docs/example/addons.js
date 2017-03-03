@@ -1,1 +1,1 @@
-import 'lsk-storybook/addons';
+import 'storybox/addons';

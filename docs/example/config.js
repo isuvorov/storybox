@@ -1,7 +1,7 @@
-import { wrapModules, setConfig } from 'lsk-storybook';
-setConfig({
+import { config } from 'storybox';
+config({
   options: {
-    name: 'MyExample',
-  }
-})
-wrapModules(require('glob!./glob.txt'), module);
+    name: 'YourComponent',
+  },
+  modules: require('glob!./glob.txt'),
+});

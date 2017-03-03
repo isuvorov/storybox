@@ -13,15 +13,23 @@ wget -O - "https://raw.githubusercontent.com/isuvorov/storybox/master/docs/quick
 ## Getting Started
 
 1.
-install skillbox package:
+install storybox package:
 
-`yarn add --dev skillbox` or
-`npm add --dev skillbox`
+`yarn add --dev storybox` or
+`npm install --save-dev storybox`
+
+adnd
+
+1.a
+Install Storybook 2.35.3 by Kadira
+
+`yarn add --dev @kadira/storybook@2.35.3` or
+`npm install --save-dev @kadira/storybook@2.35.3`
 
 2.
-Attach lsk-storybook addons pack, create `.storybook/addons.js`
+Attach storybox addons pack, create `.storybook/addons.js`
 ```js
-import 'lsk-storybook/addons';
+import 'storybox/addons';
 ```
 
 3.
@@ -39,14 +47,14 @@ Create glob-pattern file `.storybook/glob.txt`
 5.
 Create file `.storybook/config.js`
 ```js
-import { wrapModules, setConfig } from 'lsk-storybook';
+import { wrapModules, setConfig } from 'storybox';
 setConfig({});
 wrapModules(require('glob!./glob.txt'));
 ```
 
 Or you can configurate projects, using something like this
 ```js
-import { wrapModules, setConfig } from 'lsk-storybook';
+import { wrapModules, setConfig } from 'storybox';
 setConfig({
   options: {
     name: 'MG Beta',
@@ -84,6 +92,28 @@ add lines in `package.json`
 ```
 
 7. run `npm run storybook` for dev development or `npm run build-storybook` for building html
+
+## Example story
+
+src/Test.story.jsx
+```js
+import React from 'react';
+
+module.exports = function ({ storiesOf, action }) {
+  return storiesOf('Test', module)
+    .add('default', () => (
+      <button onClick={action('click')}>
+        Hello World
+      </button>
+    ))    
+    .add('emoji', () => (
+      <button onClick={action('click')}>
+        Hello 🎃
+      </button>
+    ));
+};
+
+```
 
 
 ## New API features
