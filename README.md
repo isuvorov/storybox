@@ -13,7 +13,7 @@ wget -O - "https://raw.githubusercontent.com/isuvorov/storybox/master/docs/quick
 ## Getting Started
 
 1.
-install storybox package:
+Install storybox package:
 
 `yarn add --dev storybox` or
 `npm install --save-dev storybox`
@@ -78,7 +78,7 @@ wrapModules(require('glob!./glob.txt'));
 ```
 
 6.
-add lines in `package.json`
+Add lines in `package.json`
 ```js
 {
   ...
@@ -182,6 +182,32 @@ module.exports = function ({ storiesOf, action }) {
 };
 ```
 
+## Deploy on GH Pages
+
+1.
+Install storybook-deployer by Kadira:
+
+`yarn add --dev @kadira/storybook-deployer` or
+`npm install --save-dev @kadira/storybook-deployer`
+
+2.
+Add lines in `package.json`
+```js
+{
+  ...
+  "scripts": {
+    ...
+    "deploy-storybook": "storybook-to-ghpages"
+  }
+  ...
+}
+```
+
+3.
+Run script to deploy on GH Pages
+
+`yarn run deploy-storybook` or
+`npm run deploy-storybook`
 
 ## Inspirated by
 
