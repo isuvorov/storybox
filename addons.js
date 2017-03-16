@@ -1,1 +1,1 @@
-module.exports = require('./lib/addons.js');
+module.exports = require('./dist/addons.js');
