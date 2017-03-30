@@ -182,6 +182,21 @@ module.exports = function ({ storiesOf, action }) {
 };
 ```
 
+# knob
+
+```js
+module.exports = function ({ storiesOf, knob }) {
+  return storiesOf('Cert/CertForm', module)
+    .add('Button', () => {
+      return (
+        <div className="box" style={{color: knob.text('color', '#ff0000')}}>
+          Test
+        </div>
+      );
+    });
+};
+```
+
 ## Deploy on GH Pages
 
 1.
