@@ -1,6 +1,6 @@
 {
   "name": "storybox",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Storybox is a UI development environment for your React components based on React Storybook package includes popular addons and best decorators.",
   "main": "index.js",
   "directories": {
@@ -31,7 +31,6 @@
     "@kadira/storybook-addon-knobs": "1.7.1",
     "@kadira/storybook-addon-options": "1.0.1",
     "babel-core": "6.9.0",
-    "lodash": "4.17.4",
     "react": "15.4.2",
     "react-storybook-addon-utils": "0.1.2"
   },

@@ -4,14 +4,14 @@ import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
 import infoAddon from '@kadira/react-storybook-addon-info';
 import * as knob from '@kadira/storybook-addon-knobs';
 import utils from 'react-storybook-addon-utils';
-import _ from 'lodash';
 import defaultConfig from './defaultConfig';
 import StyleWrapper from './StyleWrapper';
+import deepmerge from 'deepmerge';
 
 let conf = defaultConfig;
 function config(newConfig = {}) {
   // const
-  conf = _.merge({}, defaultConfig, newConfig);
+  conf = deepmerge(defaultConfig, newConfig, {arrayMerge: (d, s) => s});
   conf.info && storybook.setAddon(infoAddon);
   conf.options && setOptionsAddon(conf.options);
   conf.knob && storybook.addDecorator(knob.withKnobs);
