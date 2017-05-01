@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as storybook from '@kadira/storybook';
 import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
-import backgroundsAddon from 'react-storybook-addon-backgrounds';
 import infoAddon from '@kadira/react-storybook-addon-info';
 import * as knob from '@kadira/storybook-addon-knobs';
 import utils from 'react-storybook-addon-utils';
