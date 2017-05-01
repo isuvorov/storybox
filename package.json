@@ -1,6 +1,6 @@
 {
   "name": "storybox",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Storybox is a UI development environment for your React components based on React Storybook package includes popular addons and best decorators.",
   "main": "index.js",
   "directories": {
@@ -33,7 +33,7 @@
     "babel-core": "6.9.0",
     "lodash": "4.17.4",
     "react": "15.4.2",
-    "react-storybook-addon-utils": "0.1.1"
+    "react-storybook-addon-utils": "0.1.2"
   },
   "devDependencies": {
     "babel-cli": "6.23.0",
