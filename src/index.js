@@ -4,23 +4,38 @@ import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
 import backgroundsAddon from 'react-storybook-addon-backgrounds';
 import infoAddon from '@kadira/react-storybook-addon-info';
 import * as knob from '@kadira/storybook-addon-knobs';
+import utils from 'react-storybook-addon-utils';
 import _ from 'lodash';
 import defaultConfig from './defaultConfig';
 import StyleWrapper from './StyleWrapper';
 
-
+let conf = defaultConfig;
 function config(newConfig = {}) {
-  const conf = _.merge({}, defaultConfig, newConfig);
+  // const
+  conf = _.merge({}, defaultConfig, newConfig);
   conf.info && storybook.setAddon(infoAddon);
   conf.options && setOptionsAddon(conf.options);
   conf.knob && storybook.addDecorator(knob.withKnobs);
-  conf.backgrounds && storybook.addDecorator(backgroundsAddon(conf.backgrounds));
+  conf.utils && storybook.addDecorator(utils(conf.utils));
+  // conf.backgrounds && storybook.addDecorator(backgroundsAddon(conf.backgrounds));
   conf.isomorphicStyles && storybook.addDecorator(story => (<StyleWrapper children={story()} />));
   conf.modules && wrapModules(conf.modules, module);
 }
 
 const storiesOf = (...args) => {
   const res = storybook.storiesOf(...args)
+  res._add = res.add;
+  if (conf.info) {
+    res.add = (...args) => {
+      if (res.inAdd) {
+        return res._add(...args);
+      }
+      res.inAdd = true;
+      const result = res.addWithInfo(...args);
+      res.inAdd = false;
+      return result;
+    }
+  }
   res.addHtml = (html) => {
     // console.log({html});
     return res.addDecorator((story) => (

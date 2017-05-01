@@ -1,6 +1,6 @@
 {
   "name": "storybox",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Storybox is a UI development environment for your React components based on React Storybook package includes popular addons and best decorators.",
   "main": "index.js",
   "directories": {
@@ -27,7 +27,6 @@
   ],
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/react-storybook-decorator-centered": "^1.0.0",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "@kadira/storybook-addon-options": "^1.0.1",
@@ -35,7 +34,7 @@
     "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-storybook-addon-backgrounds": "^0.0.7",
-    "react-storybook-decorator-background": "^1.0.5"
+    "react-storybook-addon-utils": "^0.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -46,8 +45,9 @@
     "babel-preset-stage-2": "^6.22.0"
   },
   "scripts": {
-    "babel-build": "rm -rf dist && babel src --out-dir dist --source-maps inline --copy-files && cp {package.json,README.md} dist/",
-    "babel-publish": "npm run babel-build && npm publish dist",
-    "dev": "rm -rf dist && babel src --out-dir dist --source-maps inline --copy-files --watch && cp {package.json,README.md} dist/"
+    "release": "DEBUG=0 npm run babel-build && npm publish dist",
+    "babel-build": "rm -rf dist && mkdir dist && cp {package.json,yarn.lock,README.md} dist/ && babel src --out-dir dist --source-maps inline --copy-files",
+    "babel-build-2": "mkdir dist && cp {package.json,yarn.lock,README.md} dist/ && babel src --out-dir dist --source-maps inline --copy-files",
+    "dev": "DEBUG=1 npm run babel-build -- --watch"
   }
 }
