@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as storybook from '@kadira/storybook';
 import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
-import infoAddon from '@kadira/react-storybook-addon-info';
+import infoAddon from 'react-storybook-addon-info';
 import * as knob from '@kadira/storybook-addon-knobs';
 import utils from 'react-storybook-addon-utils';
 import defaultConfig from './defaultConfig';
@@ -12,12 +12,12 @@ let conf = defaultConfig;
 function config(newConfig = {}) {
   // const
   conf = deepmerge(defaultConfig, newConfig, {arrayMerge: (d, s) => s});
-  conf.info && storybook.setAddon(infoAddon);
   conf.options && setOptionsAddon(conf.options);
   conf.knob && storybook.addDecorator(knob.withKnobs);
   conf.utils && storybook.addDecorator(utils(conf.utils));
   // conf.backgrounds && storybook.addDecorator(backgroundsAddon(conf.backgrounds));
   conf.isomorphicStyles && storybook.addDecorator(story => (<StyleWrapper children={story()} />));
+  conf.info && storybook.setAddon(infoAddon);
   conf.modules && wrapModules(conf.modules, module);
 }
 
