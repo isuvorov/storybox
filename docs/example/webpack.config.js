@@ -1,1 +1,2 @@
-module.exports = require('../tools/webpack.config')[0]
+require('babel-polyfill');
+module.exports = require('../tools/webpack.config')[0];
