@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import * as storybook from '@kadira/storybook';
-import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
+import * as storybook from '@storybook/react';
+import { setOptions as setOptionsAddon } from '@storybook/addon-options';
 import infoAddon from 'react-storybook-addon-info';
-import * as knob from '@kadira/storybook-addon-knobs';
+import * as knob from '@storybook/addon-knobs';
 import utils from 'react-storybook-addon-utils';
 import defaultConfig from './defaultConfig';
 import StyleWrapper from './StyleWrapper';
