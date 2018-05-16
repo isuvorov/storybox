@@ -1,26 +1,31 @@
-import React, { Component } from 'react';
-import * as storybook from '@kadira/storybook';
-import { setOptions as setOptionsAddon } from '@kadira/storybook-addon-options';
-import infoAddon from 'react-storybook-addon-info';
-import * as knob from '@kadira/storybook-addon-knobs';
-import utils from 'react-storybook-addon-utils';
-import defaultConfig from './defaultConfig';
-import StyleWrapper from './StyleWrapper';
+// import React, { Component } from 'react';
+// // import * as storybook from '@kadira/storybook';
+import * as storybook from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { setOptions as setOptionsAddon } from '@storybook/addon-options';
+import * as knob from '@storybook/addon-knobs';
+//
+// import infoAddon from 'react-storybook-addon-info';
+// import utils from 'react-storybook-addon-utils';
 import deepmerge from 'deepmerge';
-
+//
+import defaultConfig from './defaultConfig';
+// import StyleWrapper from './StyleWrapper';
+//
 let conf = defaultConfig;
 function config(newConfig = {}) {
   // const
   conf = deepmerge(defaultConfig, newConfig, {arrayMerge: (d, s) => s});
-  conf.options && setOptionsAddon(conf.options);
+  // conf.options && setOptionsAddon(conf.options);
+  conf.modules && wrapModules(conf.modules, module);
+  return ;
   conf.knob && storybook.addDecorator(knob.withKnobs);
   conf.utils && storybook.addDecorator(utils(conf.utils));
   // conf.backgrounds && storybook.addDecorator(backgroundsAddon(conf.backgrounds));
   conf.isomorphicStyles && storybook.addDecorator(story => (<StyleWrapper children={story()} />));
   conf.info && storybook.setAddon(infoAddon);
-  conf.modules && wrapModules(conf.modules, module);
 }
-
+//
 const storiesOf = (...args) => {
   const res = storybook.storiesOf(...args)
   res._add = res.add;
@@ -55,14 +60,14 @@ const storiesOf = (...args) => {
   }
   return res;
 };
-
+//
 const storyParams = {
-  action: storybook.action,
-  knob,
+  action,
+  // knob,
   storiesOf,
 };
-
-
+//
+//
 function wrapModule(module) {
   if (typeof module === 'function') {
     module(storyParams);
@@ -82,7 +87,14 @@ function wrapModules(stories, module) {
     }
   }, module);
 }
-const { configure, addDecorator, setAddon } = storybook;
-export { configure, addDecorator, setAddon };
-// export storybook;
-export { wrapModule, wrapModules, storyParams, config, defaultConfig };
+// const { configure, addDecorator, setAddon } = storybook;
+export {
+  config,
+  // configure,
+  // addDecorator,
+  // setAddon,
+  wrapModule,
+  wrapModules,
+  // storyParams,
+  // defaultConfig
+};
