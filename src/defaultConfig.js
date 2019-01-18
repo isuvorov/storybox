@@ -9,6 +9,7 @@ export default {
     downPanelInRight: true,
     sortStoriesByKind: false,
   },
+  actions: true,
   info: true,
   knob: true,
   isomorphicStyles: true,
@@ -16,7 +17,7 @@ export default {
     default: {
       root: {
         position: 'absolute',
-        height:'100%',
+        height: '100%',
         width: '100%',
         backgroundSize: 'cover',
       },
@@ -30,22 +31,22 @@ export default {
             name: 'No',
             root: {
               background: 'transparent',
-            }
+            },
           },
           {
             name: 'Image',
             root: {
               enable: true,
               backgroundImage: 'url("//mcheck.mgbeta.ru/images/bg3.jpg")',
-            }
+            },
           },
           {
             name: 'Gray',
             root: {
               background: '#eeeeee',
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         name: 'Centered',
@@ -60,9 +61,9 @@ export default {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-            }
+            },
           },
-        ]
+        ],
       },
       {
         name: 'Border',
@@ -73,15 +74,15 @@ export default {
           {
             name: 'Yes',
             wrap: {
-              border: '1px black dotted'
-            }
+              border: '1px black dotted',
+            },
           },
           {
             name: 'Marks',
             marks: true,
             enable: true,
           },
-        ]
+        ],
       },
       {
         name: 'Paddings',
@@ -94,15 +95,15 @@ export default {
             name: '10px',
             wrap: {
               padding: 10,
-            }
+            },
           },
           {
             name: '50px',
             wrap: {
               padding: 50,
-            }
+            },
           },
-        ]
+        ],
       },
       {
         name: 'Width',
@@ -115,28 +116,28 @@ export default {
             name: '320px',
             content: {
               width: 320,
-            }
+            },
           },
           {
             name: '480px',
             content: {
               width: 480,
-            }
+            },
           },
           {
             name: '768px',
             content: {
               width: 768,
-            }
+            },
           },
           {
             name: '1000px',
             content: {
               width: 1000,
-            }
+            },
           },
-        ]
-      }
-    ]
-  }
+        ],
+      },
+    ],
+  },
 };
