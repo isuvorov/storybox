@@ -1,18 +1,23 @@
+import * as storybook from '@storybook/react';
+
 export default {
+  storybook,
   options: {
     name: 'Storybox',
     url: 'https://github.com/isuvorov/storybox',
-    goFullScreen: false,
-    showLeftPanel: true,
-    showDownPanel: true,
-    showSearchBox: false,
-    downPanelInRight: true,
-    sortStoriesByKind: false,
   },
-  actions: true,
-  info: true,
-  knob: true,
-  isomorphicStyles: true,
+  notes: true,
+  actions: {},
+  backgrounds: [
+    { name: 'twitter', value: '#00aced', default: true },
+    { name: 'facebook', value: '#3b5998' },
+  ],
+  console: {},
+  knobs: true,
+  links: true,
+  storysource: true,
+  viewport: {},
+
   utils: {
     default: {
       root: {

@@ -1,16 +1,20 @@
-import React from 'react';
-import * as storybook from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import defaultConfig from './defaultConfig';
 
-const DEBUG = false;
-const conf = defaultConfig;
+const DEBUG = true;
+const createStoriesOf = ({ storybook, React, ...config }) => (...args) => {
 
-const storiesOf = (...args) => {
-  if (DEBUG) console.log('storiesOf');
-
+  // if (DEBUG) console.log('storiesOf');
   const res = storybook.storiesOf(...args);
-  if (conf.info) {
+
+  if (config.notes) {
+    res.addDecorator(require('@storybook/addon-notes').withNotes);
+  }
+  if (config.backgrounds) {
+    res.addDecorator(require('@storybook/addon-backgrounds').default(config.backgrounds));
+  }
+
+  // if (config.info) {
+  if (false) {
     res._add = res.add; // eslint-disable-line  no-underscore-dangle
     res.add = (...args2) => {
       if (DEBUG) console.log('res.add');
@@ -25,35 +29,41 @@ const storiesOf = (...args) => {
     };
   }
   // res.addHtml = () => res;
-  // res.addStyle = () => res;
+  res.addStyle = () => res;
   res.addHtml = html => res.addDecorator(story => React.createElement('div', {}, [html, story()]));
-  res.addStyle = style => (
-    res.addDecorator(story => (
-      React.createElement('div', {}, [
-        React.createElement('style', {}, String(style)),
-        story(),
-      ])
-    ))
-  );
+  // res.addStyle = style => (
+  //   res.addDecorator(story => (
+  //     React.createElement('div', {}, [
+  //       React.createElement('style', {}, String(style)),
+  //       story(),
+  //     ])
+  //   ))
+  // );
 
   return res;
 };
 //
-const storyParams = {
-  action,
-  // knob,
-  storiesOf,
-};
+function wrapModule(story, config) {
+  const { storybook } = config;
+  const storyParams = {
+    action,
+    config,
+    storybook,
+    // storiesOf: storybook.storiesOf,
+    storiesOf: createStoriesOf(config),
+  };
 
-function wrapModule(module) {
-  if (typeof module === 'function') {
-    module(storyParams);
-  } else if (typeof module === 'object' && module.__esModule) { // eslint-disable-line  no-underscore-dangle
-    for (let key in module) { // eslint-disable-line
-      module[key](storyParams);
+  if (typeof story === 'function') {
+    story(storyParams);
+    return;
+  } if (typeof story === 'object' && story.__esModule) { // eslint-disable-line  no-underscore-dangle
+    for (let key in story) { // eslint-disable-line
+      story[key](storyParams);
     }
-  } else {
-    console.log('DO SOMETHING ELSE');
+    return;
+  }
+  if (DEBUG) {
+    console.log('DO SOMETHING ELSE');  //eslint-disable-line
   }
 }
 

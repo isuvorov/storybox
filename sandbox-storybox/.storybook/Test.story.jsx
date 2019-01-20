@@ -1,4 +1,4 @@
-import React from 'react';
+dimport React from 'react';
 
 module.exports = function ({ storiesOf, action, knob }) {
   return storiesOf('Button', module)

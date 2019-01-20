@@ -1,5 +1,8 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "globals": {}
+  "globals": {},
+  "rules": {
+    "global-require": "off"
+  }
 }

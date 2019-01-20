@@ -1,13 +1,9 @@
-// export { addons } from './addons';
-// export { config } from './config';
-// export { config } from './config';
-import config from './config';
+import configure from './configure';
 import wrapModule from './wrapModule';
 import wrapModules from './wrapModules';
 
 export default {
-  config,
+  configure,
   wrapModule,
   wrapModules,
 };
-
