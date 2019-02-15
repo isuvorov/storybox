@@ -6,8 +6,10 @@ import { withBackgrounds } from '@storybook/addon-backgrounds';
 import { withConsole } from '@storybook/addon-console';
 import { withOptions } from '@storybook/addon-options';
 import { withNotes } from '@storybook/addon-notes';
-import { linkTo } from '@storybook/addon-links'
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { linkTo } from '@storybook/addon-links';
+import {
+  boolean, number, text, withKnobs,
+} from '@storybook/addon-knobs';
 
 import readme from './README.md';
 
@@ -18,16 +20,16 @@ addDecorator(
     name: 'DEMO demo!!@@@',
     url: '#',
     // goFullScreen: true,
-  })
+  }),
 );
-addDecorator((storyFn, context) => withConsole()(storyFn)(context))
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(withBackgrounds([
   { name: 'twitter', value: '#00aced' },
   { name: 'facebook', value: '#3b5998' },
-]))
+]));
 
 storiesOf('Button', module)
-  
+
   .add('with text', () => (
     <div>
       <Button
@@ -37,7 +39,7 @@ storiesOf('Button', module)
       </Button>
       <Button
         onClick={() => console.log({
-          some: { strong: [ { language: 123 }] } 
+          some: { strong: [{ language: 123 }] },
         }, 123)}
       >
         console.log(Object)
@@ -65,9 +67,20 @@ storiesOf('Button', module)
       <span role="img" aria-label="so cool">😀 😎 👍 💯</span>
     </Button>
   ));
-  // .add('Full', () => (
-  //   <Button onClick={action('button-click')}>Hello Button</Button>
-  // ))  
+// .add('Full', () => (
+//   <Button onClick={action('button-click')}>Hello Button</Button>
+// ))
+
+
+storiesOf('Test 2', module)
+  .add('subtest 1', () => (
+    <div>
+      subtest 1
+    </div>
+  ))
+  .add('subtest 2', () => (
+    <button>subtest 2</button>
+  ));
 
 export default () => {};
 
