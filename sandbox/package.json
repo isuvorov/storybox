@@ -6,21 +6,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^4.1.7",
-    "@storybook/addon-backgrounds": "^4.1.7",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-backgrounds": "^4.1.11",
     "@storybook/addon-console": "^1.1.0",
-    "@storybook/addon-knobs": "^4.1.7",
-    "@storybook/addon-links": "^4.1.7",
-    "@storybook/addon-notes": "^4.1.7",
-    "@storybook/addon-options": "^4.1.7",
-    "@storybook/addon-storysource": "^4.1.7",
-    "@storybook/addon-viewport": "^4.1.7",
-    
-    "@storybook/react": "^4.1.7",
+    "@storybook/addon-knobs": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addon-notes": "^4.1.11",
+    "@storybook/addon-options": "^4.1.11",
+    "@storybook/addon-storysource": "^4.1.11",
+    "@storybook/addon-viewport": "^4.1.11",
+    "@storybook/react": "^4.1.11",
     "babel-loader": "^8.0.5"
   },
   "scripts": {
